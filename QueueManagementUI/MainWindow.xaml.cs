@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QueueClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,20 @@ namespace QueueManagementUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+      public MainWindow()
         {
             InitializeComponent();
+
+            TestData testdata = new TestData();
+            testdata.AddSection();
+            List<QSection> sections = testdata.sections;
+            FlaggedSectionDataGrid.ItemsSource = sections;
+            FlaggedSectionListView.ItemsSource = sections;
+            
+
+            
         }
+
+
     }
 }
