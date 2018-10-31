@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="CheckSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QSection.cs" />
+    <Compile Include="MySection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,7 +12,7 @@ namespace QueueClass
         public bool Question2Result { get; set; }
         public bool Question3Result { get; set; }
         public bool CheckSheetResult { get; set; }
-        public bool Impact { get; set; }
+        public string Impact { get; set; }
         public string SolutionUpdates { get; set; }
 
     }

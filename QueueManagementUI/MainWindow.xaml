@@ -7,85 +7,104 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="QueueManagementUI.MainWindow"
         mc:Ignorable="d"
         Title="DigitalQueueManagement" Height="1080" Width="1920" FontSize="16">
+    <Window.Resources>
+        <Style x:Key="datagridtextblockStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="1100"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
+        
+        <!--Row 0--><!--Title-->
+        <TextBlock Grid.Column="0" Grid.Row=" 0" FontWeight="Bold" FontSize="40" Grid.ColumnSpan="5 " TextAlignment="Center" Background="#FF3DCD58" Foreground="White"><Run Text="Digital Queue Management"/></TextBlock>
+        <!--Subgrid Column 1 Row 1--><!--Flagged Section-->
+        <Grid Grid.Column=" 1" Grid.Row="1">
+            <TextBlock Grid.Column="1" Grid.Row=" 1" Text="Failed Section" FontSize="40" Margin="5"  TextAlignment="Center"/>
+            <ListView x:Name="FlaggedSectionListView"  Width="600" Height="400" Margin="0,60,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header ="WaitTime" Width="80" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <TextBlock Text="{Binding WaitTime.Days}" Margin="0,0,2,0 " FontWeight="Bold"  Foreground="#FFB21111" />
+                                        <TextBlock Text="d" Margin="0,0,10,0 " />
+                                        <TextBlock Text="{Binding WaitTime.Hours}" Margin="0,0,2,0 " FontWeight="Bold"  Foreground="#FFB21111"/>
+                                        <TextBlock Text="h" Margin="0,0,2,0 "  />
+                                    </StackPanel>
 
-        <TextBlock Grid.Column="0" Grid.Row=" 0" FontWeight="Bold" FontSize="40" Grid.ColumnSpan="7 " TextAlignment="Center" Background="#FF3DCD58" Foreground="White"><Run Text="Digital Queue Management"/></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row=" 1" FontSize="40" Margin="5" Grid.ColumnSpan="3" TextAlignment="Center"><Run Text="Flagged Section Dashboard"/></TextBlock>
-        <DataGrid x:Name="FlaggedSectionDataGrid" Width="1000" Height="800" Grid.Column="3" Grid.Row="2" Grid.RowSpan="5" Grid.ColumnSpan="3" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" AlternatingRowBackground="#FFE7E6E6">
-            <DataGrid.ColumnHeaderHeight>
-                <System:Double>40</System:Double>
-            </DataGrid.ColumnHeaderHeight>
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Arrival Time" Width=" 180" Binding="{Binding ArrivalTime }"/>
-                <DataGridTemplateColumn Header="WaitTime" Width="80">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal"  >
-                                <TextBlock Text="{Binding WaitTime.Days}" Margin="10,0,2,0 " FontWeight="Bold" FontSize="16" Foreground="#FFB21111" />
-                                <TextBlock Text="d" Margin="0,0,10,0 " FontSize="16"/>
-                                <TextBlock Text="{Binding WaitTime.Hours}" Margin="0,0,2,0 " FontWeight="Bold" FontSize="16" Foreground="#FFB21111"/>
-                                <TextBlock Text="h" Margin="0,0,2,0 " FontSize="16" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Job#" Width=" 120" Binding="{Binding JobNumber }"/>
-                <DataGridTextColumn Header="Sect#" Width=" 50" Binding="{Binding SectionNumber }"/>
-                <DataGridTextColumn Header="JobName" Width=" 150" Binding="{Binding JobName }"/>
-                <DataGridTextColumn Header="Loc" Width=" 40" Binding="{Binding Location }"/>
-                <DataGridTextColumn Header="Issue" Width="60" Binding="{Binding CCStatus }"  />
-                <DataGridTextColumn Header="Solution" Width="250" Binding="{Binding CCSheet.SolutionUpdates}" FontSize=" 12"/>
-                
-                
-
-            </DataGrid.Columns>
-
-            
-            
-        </DataGrid>
-        <ListView x:Name="FlaggedSectionListView" Grid.Column="1" Grid.Row="2"  Width="600" Height="400"  Grid.ColumnSpan="3" Grid.RowSpan="1" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header ="WaitTime" Width="100" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" >
-                                    <TextBlock Text="{Binding WaitTime.Days}" Margin="0,0,2,0 " FontWeight="Bold" FontSize="20" Foreground="#FFB21111" />
-                                    <TextBlock Text="d" Margin="0,0,10,0 " FontSize="20"/>
-                                    <TextBlock Text="{Binding WaitTime.Hours}" Margin="0,0,2,0 " FontWeight="Bold" FontSize="20" Foreground="#FFB21111"/>
-                                    <TextBlock Text="h" Margin="0,0,2,0 " FontSize="20" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Issue" Width="100" DisplayMemberBinding= "{Binding CCStatus}" />
+                        <GridViewColumn Header ="Impact" Width="100" DisplayMemberBinding= "{Binding CCSheet.Impact}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <!--Subgrid Column 2 Row 1--><!--Section in Queue-->
+        <Grid Grid.Column="2" Grid.Row="1" >
+            <TextBlock Grid.Column="1" Text="Section In Queue" Grid.Row=" 1" FontSize="40" Margin="5"  TextAlignment="Center"/>
+            <DataGrid x:Name="FlaggedSectionDataGrid" Width="1000" Height="800" Grid.Column="2" Grid.Row="1" 
+                      AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" AlternatingRowBackground="#FFE7E6E6" 
+                      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,60,0,0" FontSize="14">
+                <DataGrid.ColumnHeaderHeight>
+                    <System:Double>40</System:Double>
+                </DataGrid.ColumnHeaderHeight>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Arrival Time" Width=" 170" Binding="{Binding ArrivalTime }"/>
+                    <DataGridTemplateColumn Header="WaitTime" Width="70">
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate >
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock Text="{Binding WaitTime.Days}" Margin="10,0,2,0 " FontWeight="Bold"  Foreground="#FFB21111" />
+                                    <TextBlock Text="d" Margin="0,0,10,0 " />
+                                    <TextBlock Text="{Binding WaitTime.Hours}" Margin="0,0,2,0 " FontWeight="Bold"  Foreground="#FFB21111"/>
+                                    <TextBlock Text="h" Margin="0,0,2,0 "  />
                                 </StackPanel>
-                                
                             </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    
-                    <GridViewColumn Header ="Issue" Width="100" DisplayMemberBinding= "{Binding CCStatus}"/>
-                    
-                </GridView>
-            </ListView.View>
-        </ListView>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Job#" Width=" 100" Binding="{Binding JobNumber }" />
+                    <DataGridTextColumn Header="Sect#" Width=" 45" Binding="{Binding SectionNumber }" ElementStyle="{StaticResource datagridtextblockStyle}"/>
+                    <DataGridTextColumn Header="Loc" Width=" 40" Binding="{Binding Location }" ElementStyle="{StaticResource datagridtextblockStyle}"/>
+                    <DataGridTextColumn Header="JobName" Width=" 180" Binding="{Binding JobName }" FontSize="13"/>
+                    <DataGridTextColumn Header="CCResult" Width="65" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CCSheet.CheckSheetResult }" Value="False">
+                                        <Setter Property="Text" Value="Fail" />
+                                        <Setter Property="Background" Value="Red" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding CCSheet.CheckSheetResult }" Value="True">
+                                        <Setter Property="Text" Value="Pass" />
+                                        <Setter Property="Background" Value="GreenYellow" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Solution" Width="*" Binding="{Binding CCSheet.SolutionUpdates}" FontSize="12" />
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

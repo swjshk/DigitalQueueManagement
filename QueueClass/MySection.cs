@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QueueClass
 {
-    public class QSection
+    public class MySection
     {
         public string JobNumber { get; set; }
         public string SectionNumber { get; set; }
@@ -32,7 +32,7 @@ namespace QueueClass
 
         }
 
-        public QSection() //Constructor to intialize the property
+        public MySection() //Constructor to intialize the property
         {
             DepartureTime = new DateTime(2039, 12, 31, 0, 0, 0);
             CCSheet = new CheckSheet();
