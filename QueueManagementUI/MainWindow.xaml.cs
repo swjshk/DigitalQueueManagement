@@ -21,20 +21,45 @@ namespace QueueManagementUI
     /// </summary>
     public partial class MainWindow : Window
     {
-      public MainWindow()
+        public List<MySection> sectioninqueue = new List<MySection>();
+        public List<MySection> failedsections = new List<MySection>();
+        public MainWindow()
         {
             InitializeComponent();
 
+            //load dummy data
             TestData testdata = new TestData();
             testdata.AddSection();
-            List<MySection> sections = testdata.sections;
-            SectionInQueueDataGrid.ItemsSource = sections.OrderBy(x => x.ArrivalTime).ToList();
-            FlaggedSectionDataGrid.ItemsSource = sections.Where(x => x.CCSheet.CheckSheetResult ==false).ToList();
-            
+            sectioninqueue = testdata.sections;
 
-            
+            //
+            SectionInQueueDataGrid.ItemsSource = sectioninqueue.OrderBy(x => x.ArrivalTime).ToList();
+            failedsections = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == false).ToList();
+            FlaggedSectionDataGrid.ItemsSource = failedsections.OrderBy(x => x.ArrivalTime).ToList();
+            wipsizeTB.Text = sectioninqueue.Count.ToString();
+
+            ccfailureTB.Text = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == false).LongCount().ToString();
+            long averagewaitTime = Convert.ToInt64(sectioninqueue.Average(x => x.WaitTime.Ticks));
+            var avgwt = new TimeSpan(averagewaitTime);
+            avgwtTB.Text = $"{avgwt.Days} d  {avgwt.Hours} h";
+
+        }
+        private void UpdateBindings()
+        {
+            SectionInQueueDataGrid.ItemsSource = sectioninqueue;
+            FlaggedSectionDataGrid.ItemsSource = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == false).ToList();
+
+        }
+        private void FIFOSortButton_Click(object sender, RoutedEventArgs e)
+        {
+            SectionInQueueDataGrid.ItemsSource = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList();
+            //UpdateBindings();
         }
 
-
+        private void ArriveButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Clikced");
+            //UpdateBindings();
+        }
     }
 }

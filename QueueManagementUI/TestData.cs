@@ -30,7 +30,7 @@ namespace QueueManagementUI
                     CheckSheetResult = false,
                     Impact = "Low",
                     Q3Issue = "symmetry barrier",
-                    SolutionUpdates = "breaker rework ETA 2hrs"
+                    SolutionUpdates = "breaker rework ETA 2hrs breaker rework ETA 2hrs breaker rework ETA 2hrs breaker rework ETA 2hrs"
 
                 }
             };
@@ -41,16 +41,16 @@ namespace QueueManagementUI
                 JobName = "ETHICON",
                 Location = "A1",
                 CCStatus = "Yellow",
-                ArrivalTime = new DateTime(2018, 10, 29, 13, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 1, 6, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = true,
                     Question2Result = true,
                     Question3Result = false,
                     CheckSheetResult = false,
-                    Impact = "High",
-                    Q3Issue = "Missing Kit cart",
-                    SolutionUpdates = "parts shortage 10pm"
+                    Impact = "Low",
+                    Q3Issue = "missing Quality checks",
+                    SolutionUpdates = "team lead to sign off"
 
                 }
             };
@@ -80,7 +80,7 @@ namespace QueueManagementUI
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
                 CCStatus = "Low",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 1, 4, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = true,
@@ -99,15 +99,16 @@ namespace QueueManagementUI
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
                 CCStatus = "Low",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 1, 7, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = true,
                     Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
-                    Impact = "Low",
-                    SolutionUpdates = "Good"
+                    Question3Result = false,
+                    CheckSheetResult = false,
+                    Impact = "High",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    SolutionUpdates = "parts shortage 10pm"
 
                 }
             };
@@ -123,10 +124,11 @@ namespace QueueManagementUI
                 {
                     Question1Result = true,
                     Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
-                    Impact = "Low",
-                    SolutionUpdates = "Good"
+                    Question3Result = false,
+                    CheckSheetResult = false,
+                    Impact = "High",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    SolutionUpdates = "parts shortage 10pm"
 
                 }
             };
@@ -142,10 +144,12 @@ namespace QueueManagementUI
                 {
                     Question1Result = true,
                     Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
-                    Impact = "Low",
-                    SolutionUpdates = "Good"
+                    Question3Result = false,
+                    CheckSheetResult = false,
+                    Impact = "High",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    SolutionUpdates = "parts shortage 10pm"
+
 
                 }
             };
@@ -161,10 +165,12 @@ namespace QueueManagementUI
                 {
                     Question1Result = true,
                     Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
-                    Impact = "Low",
-                    SolutionUpdates = "Good"
+                    Question3Result = false,
+                    CheckSheetResult = false,
+                    Impact = "High",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    SolutionUpdates = "parts shortage 10pm"
+
 
                 }
             };
@@ -180,10 +186,12 @@ namespace QueueManagementUI
                 {
                     Question1Result = true,
                     Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
-                    Impact = "Low",
-                    SolutionUpdates = "Good"
+                    Question3Result = false,
+                    CheckSheetResult = false,
+                    Impact = "High",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    SolutionUpdates = "parts shortage 10pm"
+
 
                 }
             };
@@ -199,10 +207,12 @@ namespace QueueManagementUI
                 {
                     Question1Result = true,
                     Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
-                    Impact = "Low",
-                    SolutionUpdates = "Good"
+                    Question3Result = false,
+                    CheckSheetResult = false,
+                    Impact = "High",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    SolutionUpdates = "parts shortage 10pm"
+
 
                 }
             };
@@ -218,10 +228,12 @@ namespace QueueManagementUI
                 {
                     Question1Result = true,
                     Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question3Result = false,
+                    CheckSheetResult = false,
                     Impact = "Low",
-                    SolutionUpdates = "Good"
+                    Q3Issue = "symmetry barrier",
+                    SolutionUpdates = "missing cover"
+
 
                 }
             };
@@ -234,6 +246,168 @@ namespace QueueManagementUI
                 Location = "B2",
                 CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = false,
+                    CheckSheetResult = false,
+                    Impact = "High",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    SolutionUpdates = "parts shortage 10pm"
+
+
+                }
+            };
+
+            MySection qsection13 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = true,
+                    CheckSheetResult = true,
+                    Impact = "Low",
+                    SolutionUpdates = "Good"
+
+                }
+            };
+
+            MySection qsection14 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = true,
+                    CheckSheetResult = true,
+                    Impact = "Low",
+                    SolutionUpdates = "Good"
+
+                }
+            };
+
+            MySection qsection15 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = true,
+                    CheckSheetResult = true,
+                    Impact = "Low",
+                    SolutionUpdates = "Good"
+
+                }
+            };
+
+            MySection qsection16 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = true,
+                    CheckSheetResult = true,
+                    Impact = "Low",
+                    SolutionUpdates = "Good"
+
+                }
+            };
+
+            MySection qsection17 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = true,
+                    CheckSheetResult = true,
+                    Impact = "Low",
+                    SolutionUpdates = "Good"
+
+                }
+            };
+
+            MySection qsection18 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = true,
+                    CheckSheetResult = true,
+                    Impact = "Low",
+                    SolutionUpdates = "Good"
+
+                }
+            };
+
+            MySection qsection19 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                CCSheet = new CheckSheet
+                {
+                    Question1Result = true,
+                    Question2Result = true,
+                    Question3Result = true,
+                    CheckSheetResult = true,
+                    Impact = "Low",
+                    SolutionUpdates = "Good"
+
+                }
+            };
+
+            MySection qsection20 = new MySection
+            {
+                JobNumber = "40009165-001",
+                SectionNumber = "4",
+                JobName = "BASF SUB C",
+                Location = "C3",
+                CCStatus = "green",
+                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = true,
@@ -258,6 +432,14 @@ namespace QueueManagementUI
             sections.Add(qsection10);
             sections.Add(qsection11);
             sections.Add(qsection12);
+            sections.Add(qsection13);
+            sections.Add(qsection14);
+            sections.Add(qsection15);
+            sections.Add(qsection16);
+            sections.Add(qsection17);
+            sections.Add(qsection18);
+            sections.Add(qsection19);
+            sections.Add(qsection20);
 
 
 
