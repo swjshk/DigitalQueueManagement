@@ -28,8 +28,8 @@ namespace QueueManagementUI
             TestData testdata = new TestData();
             testdata.AddSection();
             List<MySection> sections = testdata.sections;
-            FlaggedSectionDataGrid.ItemsSource = sections.OrderBy(x => x.ArrivalTime).ToList();
-            FlaggedSectionListView.ItemsSource = sections.Where(x => x.CCSheet.CheckSheetResult ==false).ToList();
+            SectionInQueueDataGrid.ItemsSource = sections.OrderBy(x => x.ArrivalTime).ToList();
+            FlaggedSectionDataGrid.ItemsSource = sections.Where(x => x.CCSheet.CheckSheetResult ==false).ToList();
             
 
             

@@ -14,6 +14,11 @@ namespace QueueClass
         public bool CheckSheetResult { get; set; }
         public string Impact { get; set; }
         public string SolutionUpdates { get; set; }
+        public string Q1Issue { get; set; }
+        public string Q2Issue { get; set; }
+        public string Q3Issue { get; set; }
+
+
 
     }
 }

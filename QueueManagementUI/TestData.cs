@@ -29,7 +29,8 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "Low",
-                    SolutionUpdates = "Has Barrier"
+                    Q3Issue = "symmetry barrier",
+                    SolutionUpdates = "breaker rework ETA 2hrs"
 
                 }
             };
@@ -48,7 +49,8 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "High",
-                    SolutionUpdates = "Missing Kit cart"
+                    Q3Issue = "Missing Kit cart",
+                    SolutionUpdates = "parts shortage 10pm"
 
                 }
             };
