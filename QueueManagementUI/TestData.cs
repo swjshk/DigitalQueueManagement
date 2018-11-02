@@ -127,7 +127,7 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    Q3Issue = "Missing Kit cart; ",
                     SolutionUpdates = "parts shortage 10pm"
 
                 }
@@ -147,7 +147,7 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    Q3Issue = "Missing Kit cart",
                     SolutionUpdates = "parts shortage 10pm"
 
 
@@ -168,7 +168,7 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    Q3Issue = "symmetry barrier; ",
                     SolutionUpdates = "parts shortage 10pm"
 
 
@@ -189,7 +189,7 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    Q3Issue = "missing Quality checks",
                     SolutionUpdates = "parts shortage 10pm"
 
 
@@ -210,7 +210,7 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    Q3Issue = "Missing Kit cart; ",
                     SolutionUpdates = "parts shortage 10pm"
 
 
@@ -253,7 +253,7 @@ namespace QueueManagementUI
                     Question3Result = false,
                     CheckSheetResult = false,
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    Q3Issue = "Missing Kit cart; symmetry barrier; ",
                     SolutionUpdates = "parts shortage 10pm"
 
 
