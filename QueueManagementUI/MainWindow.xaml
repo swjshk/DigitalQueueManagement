@@ -157,17 +157,7 @@
                         <MenuItem Header="Leave" Command="{Binding LeaveCommand}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
-                <DataGrid.RowStyle>
-                    <Style TargetType="DataGridRow">
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="Green"/>
-                                <Setter Property="Foreground" Value="Pink"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </DataGrid.RowStyle>
-
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Arrival Time" Width=" 170" Binding="{Binding ArrivalTime }" ElementStyle="{StaticResource datagridtextblockStyle2}"/>
                     <DataGridTemplateColumn Header="WaitTime" Width="70">

@@ -121,7 +121,9 @@ namespace QueueManagementUI
         
             if (selectedItem !=null) 
             {
-                MessageBoxResult result = MessageBox.Show("Do you really want to pull this section","Leaving the queue",MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Do you really want to remove\r" +
+                    $"section {selectedItem.SectionNumber} of job {selectedItem.JobNumber}\r" +
+                    $"at queue location {selectedItem.Location}?","Leaving the queue",MessageBoxButton.YesNo);
                 if (result==MessageBoxResult.Yes)
                 {
                     sectioninqueue.RemoveAt(sectioninqueue.IndexOf(selectedItem));
