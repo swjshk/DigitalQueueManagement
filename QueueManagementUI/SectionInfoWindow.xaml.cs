@@ -18,10 +18,21 @@ namespace QueueManagementUI
     /// Interaction logic for SectionInfoWindow.xaml
     /// </summary>
     public partial class SectionInfoWindow : Window
-    {
+    {   
+        public event EventHandler<string> AddSectionEvent;//public event
+        
+
         public SectionInfoWindow()
         {
             InitializeComponent();
+        }
+
+
+        //Event
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddSectionEvent?.Invoke(this, "okay");
+            this.Close();
         }
     }
 }

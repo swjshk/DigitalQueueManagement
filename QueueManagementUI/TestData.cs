@@ -95,7 +95,7 @@ namespace QueueManagementUI
             MySection qsection5 = new MySection
             {
                 JobNumber = "41385019-003",
-                SectionNumber = "2",
+                SectionNumber = "14",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
                 CCStatus = "Low",
@@ -135,9 +135,9 @@ namespace QueueManagementUI
             MySection qsection7 = new MySection
             {
                 JobNumber = "41385019-003",
-                SectionNumber = "2",
+                SectionNumber = "19",
                 JobName = "Warner Bros Tour Center",
-                Location = "B2",
+                Location = "E2",
                 CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet

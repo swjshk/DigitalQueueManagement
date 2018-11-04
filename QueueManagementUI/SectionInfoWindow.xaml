@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QueueManagementUI"
         mc:Ignorable="d"
-        Title="SectionInfoWindow" Height="300" Width="300">
+        Title="Section Information" Height="800" Width="700" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" Margin="0,680,0,0">
+            <Button Name="AddButton" Content="Add" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                    FontSize="20" FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="AddButton_Click"/>
+
+        </Grid>
     </Grid>
 </Window>
