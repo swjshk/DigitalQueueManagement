@@ -101,9 +101,9 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="Issue" Width=" 160" Binding="{Binding CCSheet.Q3Issue }" 
+                    <DataGridTextColumn Header="Issue" Width=" 170" Binding="{Binding CCSheet.Q3Issue }" 
                                         ElementStyle="{StaticResource datagridtextblockStyle3}"/>
-                    <DataGridTextColumn Header="Updates" Width=" 250" Binding="{Binding CCSheet.SolutionUpdates}" 
+                    <DataGridTextColumn Header="Updates" Width=" 260" Binding="{Binding CCSheet.SolutionUpdates}" 
                                         ElementStyle="{StaticResource datagridtextblockStyle3}"/>
                     <DataGridTextColumn Header="Impact" Width="*" Binding="{Binding CCSheet.Impact }"
                                         ElementStyle="{StaticResource datagridtextblockStyle}"/>

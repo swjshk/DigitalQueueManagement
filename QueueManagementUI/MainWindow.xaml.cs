@@ -45,15 +45,16 @@ namespace QueueManagementUI
 
         private void UpdateBindings()//update WPF data bindings
         {
-            sectioninqueue=sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList(); //sorted by FIFO
-            SectionInQueueDataGrid.ItemsSource = sectioninqueue;                
+            sectioninqueue = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList(); //sorted by FIFO
+            SectionInQueueDataGrid.ItemsSource = sectioninqueue;
             failedsections = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == false).ToList(); //filter failure section
             FlaggedSectionDataGrid.ItemsSource = failedsections.OrderBy(x => x.ArrivalTime).ToList();//sort by arrival time
+            
 
             //Queue Status
             wipsizeTB.Text = $"{sectioninqueue.Count.ToString()} Sections"; //WIP size
             ccfailureTB.Text = $"{sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == false).LongCount().ToString()} Sections";  //failure section         
-            if (sectioninqueue.Capacity==0)
+            if (sectioninqueue.Capacity == 0)
             {
                 avgwtTB.Text = $"0 days  0 hours"; //avg waiting time
             }
@@ -62,7 +63,7 @@ namespace QueueManagementUI
                 var avgwt = new TimeSpan(Convert.ToInt64(sectioninqueue.Average(x => x.WaitTime.Ticks)));  //avg waiting time
                 avgwtTB.Text = $"{avgwt.Days} days  {avgwt.Hours} hours"; //avg waiting time
             }
-           
+
 
         }
 
@@ -90,9 +91,9 @@ namespace QueueManagementUI
                 }
             };
             sectioninqueue.Add(qsection1);
-            
+
             MessageBox.Show(sectioninqueue.IndexOf(qsection1).ToString());
-          
+
             UpdateBindings();
         }
 
@@ -103,33 +104,29 @@ namespace QueueManagementUI
             SectionInQueueDataGrid.ItemsSource = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList();
             //UpdateBindings();
         }
-
         private void ArriveButton_Click(object sender, RoutedEventArgs e)
         {
             SectionInfoWindow sectionwindow = new SectionInfoWindow();
             sectionwindow.Show();
             sectionwindow.AddSectionEvent += Sectionwindow_AddSectionEvent;//subscribe event
-            
+
             //sectionwindow.ShowDialog();
             //MessageBox.Show("Clikced");
             //UpdateBindings();
         }
-
         private void LeaveButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = SectionInQueueDataGrid.SelectedItem as MySection;
-        
-            if (selectedItem !=null) 
+            if (selectedItem != null)
             {
-                MessageBoxResult result = MessageBox.Show($"Do you really want to remove\r" +
-                    $"section {selectedItem.SectionNumber} of job {selectedItem.JobNumber}\r" +
-                    $"at queue location {selectedItem.Location}?","Leaving the queue",MessageBoxButton.YesNo);
-                if (result==MessageBoxResult.Yes)
+                MessageBoxResult result = MessageBox.Show( $"Job Information:\r\rQueue Loc: { selectedItem.Location}\rSection {selectedItem.SectionNumber} of {selectedItem.JobNumber}\r" + 
+                    $"{selectedItem.JobName}\r\r"+ "Do you want to remove the above section?", "Leaving the queue", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
                 {
                     sectioninqueue.RemoveAt(sectioninqueue.IndexOf(selectedItem));
                     UpdateBindings();
                 }
-                
             }
             else
             {
