@@ -27,13 +27,14 @@ namespace QueueManagementUI
         public SectionInfoWindow()
         {
             InitializeComponent();
+            this.Resources.Add(currentsection, currentsection);
         }
 
 
         //Event
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            currentsection.JobNumber = jobnumberTB.Text;
+            //currentsection.JobNumber = "X";
             currentsection.SectionNumber = sectionnumberTB.Text;
             currentsection.JobName = jobnameTB.Text;
             currentsection.Location = queuelocTB.Text;
@@ -57,6 +58,8 @@ namespace QueueManagementUI
 
             currentsection.CCSheet.SolutionUpdates = solutionupdatesTB.Text;
             currentsection.Comment = commentTB.Text;
+            //currentsection = this.Resources["currentsectionX"] as MySection;
+
             AddSectionEvent?.Invoke(this, currentsection);
             this.Close();
         }

@@ -102,7 +102,7 @@ namespace QueueManagementUI
                     Question3Result = "No",
                     CheckSheetResult = "Fail",
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
+                    Q3Issue = "Missing Kit cart",
                     SolutionUpdates = "parts shortage 10pm"
 
                 }
@@ -121,7 +121,7 @@ namespace QueueManagementUI
                     Question3Result = "No",
                     CheckSheetResult = "Fail",
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; ",
+                    Q3Issue = "Missing Kit cart",
                     SolutionUpdates = "parts shortage 10pm"
 
                 }
@@ -160,7 +160,7 @@ namespace QueueManagementUI
                     Question3Result = "No",
                     CheckSheetResult = "Fail",
                     Impact = "High",
-                    Q3Issue = "symmetry barrier; ",
+                    Q3Issue = "symmetry barrier ",
                     SolutionUpdates = "parts shortage 10pm"
 
 
@@ -200,7 +200,7 @@ namespace QueueManagementUI
                     Question3Result = "No",
                     CheckSheetResult = "Fail",
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; ",
+                    Q3Issue = "Missing Kit cart",
                     SolutionUpdates = "parts shortage 10pm"
 
 
@@ -241,7 +241,7 @@ namespace QueueManagementUI
                     Question3Result = "No",
                     CheckSheetResult = "Fail",
                     Impact = "High",
-                    Q3Issue = "Missing Kit cart; symmetry barrier; ",
+                    Q3Issue = "Missing Kit cart; symmetry barrier",
                     SolutionUpdates = "parts shortage 10pm"
 
 

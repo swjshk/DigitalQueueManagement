@@ -23,6 +23,7 @@ namespace QueueClass
         {
             get
             {
+                _Issue = "";
                 if (Question1Result=="No")
                 {
                     _Issue += Q1Issue+"; ";
