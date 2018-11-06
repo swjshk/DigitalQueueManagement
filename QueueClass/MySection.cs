@@ -12,7 +12,7 @@ namespace QueueClass
         public string SectionNumber { get; set; }
         public string JobName { get; set; }
         public string Location { get; set; }
-        public string CCStatus { get; set; }
+        public string Comment { get; set; }
         public DateTime ArrivalTime { get; set; }
         public DateTime DepartureTime { get; set; }
         public CheckSheet CCSheet { get; set; }

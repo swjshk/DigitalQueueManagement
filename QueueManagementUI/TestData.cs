@@ -20,14 +20,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Texas Instruments Lewisville",
                 Location = "C1",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 10, 1, 32, DateTimeKind.Local),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "Low",
                     Q3Issue = "symmetry barrier",
                     SolutionUpdates = "breaker rework ETA 2hrs breaker rework ETA 2hrs breaker rework ETA 2hrs breaker rework ETA 2hrs"
@@ -40,14 +39,13 @@ namespace QueueManagementUI
                 SectionNumber = "1",
                 JobName = "ETHICON",
                 Location = "A1",
-                CCStatus = "Yellow",
                 ArrivalTime = new DateTime(2018, 11, 1, 6, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "Low",
                     Q3Issue = "missing Quality checks",
                     SolutionUpdates = "team lead to sign off"
@@ -60,14 +58,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -79,14 +76,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "Low",
                 ArrivalTime = new DateTime(2018, 11, 1, 4, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -98,14 +94,13 @@ namespace QueueManagementUI
                 SectionNumber = "14",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "Low",
                 ArrivalTime = new DateTime(2018, 11, 1, 7, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "High",
                     Q3Issue = "Missing Kit cart; symmetry barrier; missing Quality checks",
                     SolutionUpdates = "parts shortage 10pm"
@@ -118,14 +113,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "High",
                     Q3Issue = "Missing Kit cart; ",
                     SolutionUpdates = "parts shortage 10pm"
@@ -138,14 +132,13 @@ namespace QueueManagementUI
                 SectionNumber = "19",
                 JobName = "Warner Bros Tour Center",
                 Location = "E2",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "High",
                     Q3Issue = "Missing Kit cart",
                     SolutionUpdates = "parts shortage 10pm"
@@ -159,14 +152,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "High",
                     Q3Issue = "symmetry barrier; ",
                     SolutionUpdates = "parts shortage 10pm"
@@ -180,14 +172,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "High",
                     Q3Issue = "missing Quality checks",
                     SolutionUpdates = "parts shortage 10pm"
@@ -201,14 +192,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "High",
                     Q3Issue = "Missing Kit cart; ",
                     SolutionUpdates = "parts shortage 10pm"
@@ -222,14 +212,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "Low",
                     Q3Issue = "symmetry barrier",
                     SolutionUpdates = "missing cover"
@@ -244,14 +233,13 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "No",
+                    CheckSheetResult = "Fail",
                     Impact = "High",
                     Q3Issue = "Missing Kit cart; symmetry barrier; ",
                     SolutionUpdates = "parts shortage 10pm"
@@ -266,14 +254,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -286,14 +273,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -306,14 +292,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -326,14 +311,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -346,14 +330,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -366,14 +349,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -386,14 +368,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 
@@ -406,14 +387,13 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                CCStatus = "green",
                 ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
                 CCSheet = new CheckSheet
                 {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = true,
-                    CheckSheetResult = true,
+                    Question1Result = "Yes",
+                    Question2Result = "Yes",
+                    Question3Result = "Yes",
+                    CheckSheetResult = "Pass",
                     Impact = "Low",
                     SolutionUpdates = "Good"
 

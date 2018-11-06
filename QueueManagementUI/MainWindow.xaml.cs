@@ -36,24 +36,24 @@ namespace QueueManagementUI
             sectioninqueue = testdata.sections;
 
             //load the data to the datagrid
-            UpdateBindings();
+            UpdateBindings_MainWindow();
 
             //subscribe event
             //WireUpForm();
 
         }
 
-        private void UpdateBindings()//update WPF data bindings
+        private void UpdateBindings_MainWindow()//update WPF data bindings
         {
             sectioninqueue = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList(); //sorted by FIFO
             SectionInQueueDataGrid.ItemsSource = sectioninqueue;
-            failedsections = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == false).ToList(); //filter failure section
+            failedsections = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").ToList(); //filter failure section
             FlaggedSectionDataGrid.ItemsSource = failedsections.OrderBy(x => x.ArrivalTime).ToList();//sort by arrival time
             
 
             //Queue Status
             wipsizeTB.Text = $"{sectioninqueue.Count.ToString()} Sections"; //WIP size
-            ccfailureTB.Text = $"{sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == false).LongCount().ToString()} Sections";  //failure section         
+            ccfailureTB.Text = $"{sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").LongCount().ToString()} Sections";  //failure section         
             if (sectioninqueue.Capacity == 0)
             {
                 avgwtTB.Text = $"0 days  0 hours"; //avg waiting time
@@ -68,33 +68,10 @@ namespace QueueManagementUI
         }
 
         //event action
-        private void Sectionwindow_AddSectionEvent(object sender, string e)
-        {
-            //MessageBox.Show("Test2");
-            MySection qsection1 = new MySection
-            {
-                JobNumber = "x1385019-003",
-                SectionNumber = "19",
-                JobName = "xxxxxxx",
-                Location = "c2",
-                CCStatus = "green",
-                ArrivalTime = DateTime.Now,
-                CCSheet = new CheckSheet
-                {
-                    Question1Result = true,
-                    Question2Result = true,
-                    Question3Result = false,
-                    CheckSheetResult = false,
-                    Impact = "High",
-                    Q3Issue = "Missing Kit cart",
-                    SolutionUpdates = "parts shortage 10pm"
-                }
-            };
-            sectioninqueue.Add(qsection1);
-
-            MessageBox.Show(sectioninqueue.IndexOf(qsection1).ToString());
-
-            UpdateBindings();
+        private void Sectionwindow_AddSectionEvent(object sender, MySection e)
+        {         
+            sectioninqueue.Add(e);
+            UpdateBindings_MainWindow();
         }
 
 
@@ -107,7 +84,21 @@ namespace QueueManagementUI
         private void ArriveButton_Click(object sender, RoutedEventArgs e)
         {
             SectionInfoWindow sectionwindow = new SectionInfoWindow();
+            MySection qsection1 = new MySection();
             sectionwindow.Show();
+
+            //WPF
+            sectionwindow.arrivaltimeTB.Text = DateTime.Now.ToString();
+
+            //data
+            qsection1.ArrivalTime = DateTime.Now;
+            
+
+          
+
+
+
+            sectionwindow.currentsection = qsection1;
             sectionwindow.AddSectionEvent += Sectionwindow_AddSectionEvent;//subscribe event
 
             //sectionwindow.ShowDialog();
@@ -125,7 +116,7 @@ namespace QueueManagementUI
                 if (result == MessageBoxResult.Yes)
                 {
                     sectioninqueue.RemoveAt(sectioninqueue.IndexOf(selectedItem));
-                    UpdateBindings();
+                    UpdateBindings_MainWindow();
                 }
             }
             else

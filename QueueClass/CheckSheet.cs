@@ -8,15 +8,38 @@ namespace QueueClass
 {
     public class CheckSheet
     {
-        public bool Question1Result { get; set; }
-        public bool Question2Result { get; set; }
-        public bool Question3Result { get; set; }
-        public bool CheckSheetResult { get; set; }
+        public string Question1Result { get; set; }
+        public string Question2Result { get; set; }
+        public string Question3Result { get; set; }
+        public string CheckSheetResult { get; set; }
         public string Impact { get; set; }
         public string SolutionUpdates { get; set; }
         public string Q1Issue { get; set; }
         public string Q2Issue { get; set; }
         public string Q3Issue { get; set; }
+        private string _Issue;
+
+        public string Issue
+        {
+            get
+            {
+                if (Question1Result=="No")
+                {
+                    _Issue += Q1Issue+"; ";
+                }
+                if (Question2Result == "No")
+                {
+                    _Issue += Q2Issue + "; ";
+                }
+                if (Question3Result == "No")
+                {
+                    _Issue += Q3Issue + "; ";
+                }
+                return _Issue;
+            }
+
+        }
+
 
 
 

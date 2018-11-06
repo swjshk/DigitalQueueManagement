@@ -101,7 +101,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="Issue" Width=" 170" Binding="{Binding CCSheet.Q3Issue }" 
+                    <DataGridTextColumn Header="Issue" Width=" 170" Binding="{Binding CCSheet.Issue }" 
                                         ElementStyle="{StaticResource datagridtextblockStyle3}"/>
                     <DataGridTextColumn Header="Updates" Width=" 260" Binding="{Binding CCSheet.SolutionUpdates}" 
                                         ElementStyle="{StaticResource datagridtextblockStyle3}"/>
@@ -182,19 +182,19 @@
                                 <Style.Triggers>
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="False" />
+                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="Fail" />
                                             <Condition Binding="{Binding CCSheet.Impact }" Value="High" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Background" Value="#FFEF9A9A" />
                                     </MultiDataTrigger>
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="False" />
+                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="Fail" />
                                             <Condition Binding="{Binding CCSheet.Impact }" Value="Low" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Background" Value="#FFFFF59D" />
                                     </MultiDataTrigger>
-                                    <DataTrigger Binding="{Binding CCSheet.CheckSheetResult }" Value="True">
+                                    <DataTrigger Binding="{Binding CCSheet.CheckSheetResult }" Value="Pass">
                                         <Setter Property="Background" Value="#FFa5d6a7" />
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -206,26 +206,26 @@
                                 <Style.Triggers>
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="False" />
+                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="Fail" />
                                             <Condition Binding="{Binding CCSheet.Impact }" Value="High" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Text" Value="Fail" />
                                     </MultiDataTrigger>
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="False" />
+                                            <Condition Binding="{Binding CCSheet.CheckSheetResult }" Value="Fail" />
                                             <Condition Binding="{Binding CCSheet.Impact }" Value="Low" />
                                         </MultiDataTrigger.Conditions>
                                         <Setter Property="Text" Value="Fail" />
                                     </MultiDataTrigger>
-                                    <DataTrigger Binding="{Binding CCSheet.CheckSheetResult }" Value="True">
+                                    <DataTrigger Binding="{Binding CCSheet.CheckSheetResult }" Value="Pass">
                                         <Setter Property="Text" Value="Pass" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Comment" Width="*" Binding="{Binding CCSheet.SolutionUpdates}" FontSize="12" />
+                    <DataGridTextColumn Header="Comment" Width="*" Binding="{Binding Comment }" FontSize="12" />
 
                 </DataGrid.Columns>
             </DataGrid>

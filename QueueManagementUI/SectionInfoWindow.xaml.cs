@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using QueueClass;
 
 namespace QueueManagementUI
 {
@@ -18,9 +19,10 @@ namespace QueueManagementUI
     /// Interaction logic for SectionInfoWindow.xaml
     /// </summary>
     public partial class SectionInfoWindow : Window
-    {   
-        public event EventHandler<string> AddSectionEvent;//public event
-        
+    {
+        public MySection currentsection = new MySection();
+        public event EventHandler<MySection> AddSectionEvent;//public event
+
 
         public SectionInfoWindow()
         {
@@ -31,7 +33,31 @@ namespace QueueManagementUI
         //Event
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddSectionEvent?.Invoke(this, "okay");
+            currentsection.JobNumber = jobnumberTB.Text;
+            currentsection.SectionNumber = sectionnumberTB.Text;
+            currentsection.JobName = jobnameTB.Text;
+            currentsection.Location = queuelocTB.Text;
+            if (q1resultCB.Text == "Yes" && q2resultCB.Text == "Yes" && q3resultCB.Text == "Yes")
+            {
+                currentsection.CCSheet.CheckSheetResult = "Pass";
+            }
+            else
+            {
+                currentsection.CCSheet.CheckSheetResult = "Fail";
+            }
+
+            currentsection.CCSheet.Impact = impactCB.Text;
+            currentsection.CCSheet.Question1Result = q1resultCB.Text;
+            currentsection.CCSheet.Q1Issue = q1issueCB.Text;
+            currentsection.CCSheet.Question2Result = q2resultCB.Text;
+            currentsection.CCSheet.Q2Issue = q2issueCB.Text;
+            currentsection.CCSheet.Question3Result = q3resultCB.Text;
+            currentsection.CCSheet.Q3Issue = q3issueCB.Text;
+
+
+            currentsection.CCSheet.SolutionUpdates = solutionupdatesTB.Text;
+            currentsection.Comment = commentTB.Text;
+            AddSectionEvent?.Invoke(this, currentsection);
             this.Close();
         }
     }
