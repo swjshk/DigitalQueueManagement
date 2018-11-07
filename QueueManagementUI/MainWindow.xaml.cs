@@ -74,6 +74,14 @@ namespace QueueManagementUI
             UpdateBindings_MainWindow();
         }
 
+        private void Sectionwindow_UpdateSectionEvent(object sender, MySection e)
+        {
+            
+            var selectedItem = SectionInQueueDataGrid.SelectedItem as MySection;
+            sectioninqueue.Remove(selectedItem);
+            sectioninqueue.Add(e);
+            UpdateBindings_MainWindow();
+        }
 
         //button event
         private void FIFOSortButton_Click(object sender, RoutedEventArgs e)
@@ -83,23 +91,19 @@ namespace QueueManagementUI
         }
         private void ArriveButton_Click(object sender, RoutedEventArgs e)
         {
-            SectionInfoWindow sectionwindow = new SectionInfoWindow();
+            SectionInfoWindow sectionwindow_add = new SectionInfoWindow();
             MySection qsection1 = new MySection();
-            sectionwindow.Show();
-
+            sectionwindow_add.Show();
+            sectionwindow_add.UpdateButton.IsEnabled = false;
+            sectionwindow_add.UpdateButton.Visibility = Visibility.Hidden;
             //WPF
-            sectionwindow.arrivaltimeTB.Text = DateTime.Now.ToString();
+            sectionwindow_add.arrivaltimeTB.Text = DateTime.Now.ToString();
 
             //data
             qsection1.ArrivalTime = DateTime.Now;
-            
 
-          
-
-
-
-            sectionwindow.currentsection = qsection1;
-            sectionwindow.AddSectionEvent += Sectionwindow_AddSectionEvent;//subscribe event
+            sectionwindow_add.currentsection = qsection1;
+            sectionwindow_add.AddSectionEvent += Sectionwindow_AddSectionEvent;//subscribe event
 
             //sectionwindow.ShowDialog();
             //MessageBox.Show("Clikced");
@@ -118,6 +122,49 @@ namespace QueueManagementUI
                     sectioninqueue.RemoveAt(sectioninqueue.IndexOf(selectedItem));
                     UpdateBindings_MainWindow();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please select a section from the right list");
+            }
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = SectionInQueueDataGrid.SelectedItem as MySection;
+            if (selectedItem != null)
+            {
+                SectionInfoWindow sectionwindow_update = new SectionInfoWindow();
+                sectionwindow_update.Show();
+                sectionwindow_update.AddButton.IsEnabled = false;
+                sectionwindow_update.AddButton.Visibility = Visibility.Hidden;
+                sectionwindow_update.jobnumberTB.IsReadOnly = true;
+                sectionwindow_update.sectionnumberTB.IsReadOnly = true;
+                sectionwindow_update.jobnameTB.IsReadOnly = true;
+                sectionwindow_update.queuelocTB.IsReadOnly = true;
+                sectionwindow_update.jobnumberTB.BorderBrush = null;
+                sectionwindow_update.sectionnumberTB.BorderBrush = null;
+                sectionwindow_update.jobnameTB.BorderBrush = null;
+                sectionwindow_update.queuelocTB.BorderBrush = null;
+
+                sectionwindow_update.jobnumberTB.Text = selectedItem.JobNumber;
+                sectionwindow_update.sectionnumberTB.Text = selectedItem.SectionNumber;
+                sectionwindow_update.jobnameTB.Text = selectedItem.JobName;             
+                sectionwindow_update.arrivaltimeTB.Text = selectedItem.ArrivalTime.ToString();
+                sectionwindow_update.queuelocTB.Text = selectedItem.Location;
+                sectionwindow_update.ccresultTB.Text = selectedItem.CCSheet.CheckSheetResult;
+                sectionwindow_update.impactCB.Text = selectedItem.CCSheet.Impact;
+                sectionwindow_update.q1resultCB.Text = selectedItem.CCSheet.Question1Result;
+                sectionwindow_update.q1issueCB.Text = selectedItem.CCSheet.Q1Issue;
+                sectionwindow_update.q2resultCB.Text = selectedItem.CCSheet.Question2Result;
+                sectionwindow_update.q2issueCB.Text = selectedItem.CCSheet.Q2Issue;
+                sectionwindow_update.q3resultCB.Text = selectedItem.CCSheet.Question3Result;
+                sectionwindow_update.q3issueCB.Text = selectedItem.CCSheet.Q3Issue;
+                sectionwindow_update.solutionupdatesTB.Text = selectedItem.CCSheet.SolutionUpdates;
+                sectionwindow_update.commentTB.Text = selectedItem.Comment;
+
+                sectionwindow_update.UpdateSectionEvent += Sectionwindow_UpdateSectionEvent;//subscribe event
+
             }
             else
             {

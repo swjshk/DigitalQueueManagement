@@ -236,10 +236,12 @@
             <StackPanel Margin="10, 100,0,500">
                 <Button Name="ArriveButton" Width="160" Height="50" Content="Arrive" FontSize="30" FontWeight="Bold" 
                         Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="ArriveButton_Click"/>
-                <Button Name="FIFOSortButton" Width="160" Height="50" Content="FIFO Sort" FontSize="30" Margin="0,20,0,0" 
-                        FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="FIFOSortButton_Click"/>
                 <Button Name="LeaveButton" Width="160" Height="50" Content="Leave" FontSize="30" Margin="0,20,0,0" 
                         FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="LeaveButton_Click" />
+                <Button Name="UpdateButton" Width="160" Height="50" Content="Update" FontSize="30" Margin="0,20,0,0" 
+                        FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="UpdateButton_Click" />
+                <Button Name="FIFOSortButton" Width="160" Height="50" Content="FIFO Sort" FontSize="30" Margin="0,20,0,0" 
+                        FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="FIFOSortButton_Click"/>
             </StackPanel>
 
         </Grid>
