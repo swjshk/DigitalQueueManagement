@@ -63,7 +63,7 @@ namespace QueueManagementUI
                 var avgwt = new TimeSpan(Convert.ToInt64(sectioninqueue.Average(x => x.WaitTime.Ticks)));  //avg waiting time
                 avgwtTB.Text = $"{avgwt.Days} days  {avgwt.Hours} hours"; //avg waiting time
             }
-           
+
 
         }
 
