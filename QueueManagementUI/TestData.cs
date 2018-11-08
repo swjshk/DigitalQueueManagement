@@ -20,7 +20,7 @@ namespace QueueManagementUI
                 SectionNumber = "2",
                 JobName = "Texas Instruments Lewisville",
                 Location = "C1",
-                ArrivalTime = new DateTime(2018, 10, 28, 10, 1, 32, DateTimeKind.Local),
+                ArrivalTime = new DateTime(2018, 11, 07, 1, 1, 32, DateTimeKind.Local),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -39,7 +39,7 @@ namespace QueueManagementUI
                 SectionNumber = "1",
                 JobName = "ETHICON",
                 Location = "A1",
-                ArrivalTime = new DateTime(2018, 11, 1, 6, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 07, 2, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -58,7 +58,7 @@ namespace QueueManagementUI
                 SectionNumber = "4",
                 JobName = "BASF SUB C",
                 Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                ArrivalTime = new DateTime(2018, 11, 07, 4, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -73,10 +73,10 @@ namespace QueueManagementUI
             MySection qsection4 = new MySection
             {
                 JobNumber = "41385019-003",
-                SectionNumber = "2",
+                SectionNumber = "1",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                ArrivalTime = new DateTime(2018, 11, 1, 4, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 07, 5, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -91,10 +91,10 @@ namespace QueueManagementUI
             MySection qsection5 = new MySection
             {
                 JobNumber = "41385019-003",
-                SectionNumber = "14",
+                SectionNumber = "2",
                 JobName = "Warner Bros Tour Center",
-                Location = "B2",
-                ArrivalTime = new DateTime(2018, 11, 1, 7, 30, 52),
+                Location = "A2",
+                ArrivalTime = new DateTime(2018, 11, 07, 6, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -110,10 +110,10 @@ namespace QueueManagementUI
             MySection qsection6 = new MySection
             {
                 JobNumber = "41385019-003",
-                SectionNumber = "2",
+                SectionNumber = "3",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 06, 6, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -129,10 +129,10 @@ namespace QueueManagementUI
             MySection qsection7 = new MySection
             {
                 JobNumber = "41385019-003",
-                SectionNumber = "19",
+                SectionNumber = "4",
                 JobName = "Warner Bros Tour Center",
                 Location = "E2",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 06, 6, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -148,11 +148,11 @@ namespace QueueManagementUI
             };
             MySection qsection8 = new MySection
             {
-                JobNumber = "41385019-003",
-                SectionNumber = "2",
-                JobName = "Warner Bros Tour Center",
-                Location = "B2",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
+                JobNumber = "40337205-015",
+                SectionNumber = "1",
+                JobName = "HCA SUNRISE HOSPITAL",
+                Location = "D1",
+                ArrivalTime = new DateTime(2018, 11, 06, 7, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -168,11 +168,11 @@ namespace QueueManagementUI
             };
             MySection qsection9 = new MySection
             {
-                JobNumber = "41385019-003",
+                JobNumber = "40337205-015",
                 SectionNumber = "2",
-                JobName = "Warner Bros Tour Center",
-                Location = "B2",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
+                JobName = "HCA SUNRISE HOSPITAL",
+                Location = "D2",
+                ArrivalTime = new DateTime(2018, 11, 06, 8, 30, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -186,75 +186,75 @@ namespace QueueManagementUI
 
                 }
             };
-            MySection qsection10 = new MySection
-            {
-                JobNumber = "41385019-003",
-                SectionNumber = "2",
-                JobName = "Warner Bros Tour Center",
-                Location = "B2",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
-                CCSheet = new CheckSheet
-                {
-                    Question1Result = "Yes",
-                    Question2Result = "Yes",
-                    Question3Result = "No",
-                    CheckSheetResult = "Fail",
-                    Impact = "High",
-                    Q3Issue = "Missing kit cart",
-                    SolutionUpdates = "parts shortage 10pm"
+            //MySection qsection10 = new MySection
+            //{
+            //    JobNumber = "41385019-003",
+            //    SectionNumber = "2",
+            //    JobName = "Warner Bros Tour Center",
+            //    Location = "B2",
+            //    ArrivalTime = new DateTime(2018, 11, 06, 9, 30, 52),
+            //    CCSheet = new CheckSheet
+            //    {
+            //        Question1Result = "Yes",
+            //        Question2Result = "Yes",
+            //        Question3Result = "No",
+            //        CheckSheetResult = "Fail",
+            //        Impact = "High",
+            //        Q3Issue = "Missing kit cart",
+            //        SolutionUpdates = "parts shortage 10pm"
 
 
-                }
-            };
-            MySection qsection11 = new MySection
-            {
-                JobNumber = "41385019-003",
-                SectionNumber = "2",
-                JobName = "Warner Bros Tour Center",
-                Location = "B2",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
-                CCSheet = new CheckSheet
-                {
-                    Question1Result = "Yes",
-                    Question2Result = "Yes",
-                    Question3Result = "No",
-                    CheckSheetResult = "Fail",
-                    Impact = "Low",
-                    Q3Issue = "Changes requrie re-work",
-                    SolutionUpdates = "missing cover"
+            //    }
+            //};
+            //MySection qsection11 = new MySection
+            //{
+            //    JobNumber = "41385019-003",
+            //    SectionNumber = "2",
+            //    JobName = "Warner Bros Tour Center",
+            //    Location = "B2",
+            //    ArrivalTime = new DateTime(2018, 11, 06, 12, 30, 52),
+            //    CCSheet = new CheckSheet
+            //    {
+            //        Question1Result = "Yes",
+            //        Question2Result = "Yes",
+            //        Question3Result = "No",
+            //        CheckSheetResult = "Fail",
+            //        Impact = "Low",
+            //        Q3Issue = "Changes requrie re-work",
+            //        SolutionUpdates = "missing cover"
 
 
-                }
-            };
+            //    }
+            //};
 
-            MySection qsection12 = new MySection
-            {
-                JobNumber = "41385019-003",
-                SectionNumber = "2",
-                JobName = "Warner Bros Tour Center",
-                Location = "B2",
-                ArrivalTime = new DateTime(2018, 10, 28, 8, 30, 52),
-                CCSheet = new CheckSheet
-                {
-                    Question1Result = "Yes",
-                    Question2Result = "Yes",
-                    Question3Result = "No",
-                    CheckSheetResult = "Fail",
-                    Impact = "High",
-                    Q3Issue = "Missing kit cart",
-                    SolutionUpdates = "parts shortage 10pm"
+            //MySection qsection12 = new MySection
+            //{
+            //    JobNumber = "41385019-003",
+            //    SectionNumber = "2",
+            //    JobName = "Warner Bros Tour Center",
+            //    Location = "B2",
+            //    ArrivalTime = new DateTime(2018, 11, 05, 12, 30, 52),
+            //    CCSheet = new CheckSheet
+            //    {
+            //        Question1Result = "Yes",
+            //        Question2Result = "Yes",
+            //        Question3Result = "No",
+            //        CheckSheetResult = "Fail",
+            //        Impact = "High",
+            //        Q3Issue = "Missing kit cart",
+            //        SolutionUpdates = "parts shortage 10pm"
 
 
-                }
-            };
+            //    }
+            //};
 
             MySection qsection13 = new MySection
             {
-                JobNumber = "40009165-001",
-                SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobNumber = "41496242-033",
+                SectionNumber = "1",
+                JobName = "FS17007 - First Solar",
+                Location = "E1",
+                ArrivalTime = new DateTime(2018, 11, 05, 15, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -269,11 +269,11 @@ namespace QueueManagementUI
 
             MySection qsection14 = new MySection
             {
-                JobNumber = "40009165-001",
-                SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobNumber = "41496242-033",
+                SectionNumber = "2",
+                JobName = "FS17007 - First Solar",
+                Location = "E2",
+                ArrivalTime = new DateTime(2018, 11, 05, 16, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -288,11 +288,11 @@ namespace QueueManagementUI
 
             MySection qsection15 = new MySection
             {
-                JobNumber = "40009165-001",
-                SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobNumber = "41496242-033",
+                SectionNumber = "3",
+                JobName = "FS17007 - First Solar",
+                Location = "E3",
+                ArrivalTime = new DateTime(2018, 11, 04, 12, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -307,11 +307,11 @@ namespace QueueManagementUI
 
             MySection qsection16 = new MySection
             {
-                JobNumber = "40009165-001",
+                JobNumber = "41397014-001",
                 SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobName = "ATT Plaza Generator Re-Feed",
+                Location = "B1",
+                ArrivalTime = new DateTime(2018, 11, 04, 3, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -326,11 +326,11 @@ namespace QueueManagementUI
 
             MySection qsection17 = new MySection
             {
-                JobNumber = "40009165-001",
-                SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobNumber = "41397014-001",
+                SectionNumber = "2",
+                JobName = "ATT Plaza Generator Re-Feed",
+                Location = "B2",
+                ArrivalTime = new DateTime(2018, 11, 02, 12, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -345,11 +345,11 @@ namespace QueueManagementUI
 
             MySection qsection18 = new MySection
             {
-                JobNumber = "40009165-001",
-                SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobNumber = "41407062-001",
+                SectionNumber = "3",
+                JobName = "SLC-40 Hangar Upgrades",
+                Location = "C5",
+                ArrivalTime = new DateTime(2018, 11, 06, 14, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -364,11 +364,11 @@ namespace QueueManagementUI
 
             MySection qsection19 = new MySection
             {
-                JobNumber = "40009165-001",
-                SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobNumber = "41407062-001",
+                SectionNumber = "1",
+                JobName = "SLC-40 Hangar Upgrades",
+                Location = "C4",
+                ArrivalTime = new DateTime(2018, 11, 05, 17, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -383,11 +383,11 @@ namespace QueueManagementUI
 
             MySection qsection20 = new MySection
             {
-                JobNumber = "40009165-001",
-                SectionNumber = "4",
-                JobName = "BASF SUB C",
-                Location = "C3",
-                ArrivalTime = new DateTime(2018, 10, 29, 7, 30, 56),
+                JobNumber = "39874222-001",
+                SectionNumber = "2",
+                JobName = "UK Parking Structure #2",
+                Location = "A5",
+                ArrivalTime = new DateTime(2018, 11, 01, 12, 30, 56),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",
@@ -409,9 +409,9 @@ namespace QueueManagementUI
             sections.Add(qsection7);
             sections.Add(qsection8);
             sections.Add(qsection9);
-            sections.Add(qsection10);
-            sections.Add(qsection11);
-            sections.Add(qsection12);
+            //sections.Add(qsection10);
+            //sections.Add(qsection11);
+            //sections.Add(qsection12);
             sections.Add(qsection13);
             sections.Add(qsection14);
             sections.Add(qsection15);
