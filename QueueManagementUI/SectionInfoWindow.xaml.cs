@@ -23,6 +23,7 @@ namespace QueueManagementUI
         public MySection currentsection = new MySection();
         public event EventHandler<MySection> AddSectionEvent;//public event
         public event EventHandler<MySection> UpdateSectionEvent;//public event
+       
 
         public SectionInfoWindow()
         {
@@ -94,6 +95,12 @@ namespace QueueManagementUI
 
 
             UpdateSectionEvent?.Invoke(this, currentsection);
+            this.Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+ 
             this.Close();
         }
     }

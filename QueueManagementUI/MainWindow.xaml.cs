@@ -71,6 +71,7 @@ namespace QueueManagementUI
         private void Sectionwindow_AddSectionEvent(object sender, MySection e)
         {         
             sectioninqueue.Add(e);
+            this.IsEnabled = true;
             UpdateBindings_MainWindow();
         }
 
@@ -83,17 +84,22 @@ namespace QueueManagementUI
             UpdateBindings_MainWindow();
         }
 
+
+
+
         //button event
-        private void FIFOSortButton_Click(object sender, RoutedEventArgs e)
-        {
-            SectionInQueueDataGrid.ItemsSource = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList();
-            //UpdateBindings();
-        }
+        //private void FIFOSortButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    SectionInQueueDataGrid.ItemsSource = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList();
+        //    //UpdateBindings();
+        //}
         private void ArriveButton_Click(object sender, RoutedEventArgs e)
         {
             SectionInfoWindow sectionwindow_add = new SectionInfoWindow();
             MySection qsection1 = new MySection();
-            sectionwindow_add.Show();
+           
+            //this.IsEnabled = false;
+
             sectionwindow_add.UpdateButton.IsEnabled = false;
             sectionwindow_add.UpdateButton.Visibility = Visibility.Hidden;
             //WPF
@@ -104,10 +110,7 @@ namespace QueueManagementUI
 
             sectionwindow_add.currentsection = qsection1;
             sectionwindow_add.AddSectionEvent += Sectionwindow_AddSectionEvent;//subscribe event
-
-            //sectionwindow.ShowDialog();
-            //MessageBox.Show("Clikced");
-            //UpdateBindings();
+                        sectionwindow_add.ShowDialog();
         }
         private void LeaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -131,11 +134,13 @@ namespace QueueManagementUI
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            //this.IsEnabled = false;
+
             var selectedItem = SectionInQueueDataGrid.SelectedItem as MySection;
             if (selectedItem != null)
             {
                 SectionInfoWindow sectionwindow_update = new SectionInfoWindow();
-                sectionwindow_update.Show();
+               
                 sectionwindow_update.AddButton.IsEnabled = false;
                 sectionwindow_update.AddButton.Visibility = Visibility.Hidden;
                 sectionwindow_update.jobnumberTB.IsReadOnly = true;
@@ -164,7 +169,8 @@ namespace QueueManagementUI
                 sectionwindow_update.commentTB.Text = selectedItem.Comment;
 
                 sectionwindow_update.UpdateSectionEvent += Sectionwindow_UpdateSectionEvent;//subscribe event
-
+              
+                sectionwindow_update.ShowDialog();
             }
             else
             {
