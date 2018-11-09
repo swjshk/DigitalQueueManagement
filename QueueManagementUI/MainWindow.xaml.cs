@@ -29,6 +29,7 @@ namespace QueueManagementUI
         public MainWindow()
         {
             InitializeComponent();
+            
 
             //load initial dummy data 
             TestData testdata = new TestData();
@@ -48,10 +49,14 @@ namespace QueueManagementUI
             sectioninqueue = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList(); //sorted by FIFO
             SectionInQueueDataGrid.ItemsSource = sectioninqueue;
             failedsections = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").ToList(); //filter failure section
-            FlaggedSectionDataGrid.ItemsSource = failedsections.OrderBy(x => x.ArrivalTime).ToList();//sort by arrival time
-            
+            FlaggedSectionDataGrid.ItemsSource = failedsections.OrderBy(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList();//sort by arrival time
+
+
 
             //Queue Status
+
+            sectQtyTB.Text = sectioninqueue.Count.ToString();
+            failQtyTB.Text = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").LongCount().ToString();
             wipsizeTB.Text = $"{sectioninqueue.Count.ToString()} Sections"; //WIP size
             ccfailureTB.Text = $"{sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").LongCount().ToString()} Sections";  //failure section         
             if (sectioninqueue.Capacity == 0)
@@ -85,15 +90,7 @@ namespace QueueManagementUI
         }
 
 
-
-
-        //button event
-        //private void FIFOSortButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    SectionInQueueDataGrid.ItemsSource = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList();
-        //    //UpdateBindings();
-        //}
-        private void ArriveButton_Click(object sender, RoutedEventArgs e)
+      private void ArriveButton_Click(object sender, RoutedEventArgs e)
         {
             SectionInfoWindow sectionwindow_add = new SectionInfoWindow();
             MySection qsection1 = new MySection();
@@ -109,6 +106,8 @@ namespace QueueManagementUI
             qsection1.ArrivalTime = DateTime.Now;
 
             sectionwindow_add.currentsection = qsection1;
+
+ 
             sectionwindow_add.AddSectionEvent += Sectionwindow_AddSectionEvent;//subscribe event
                         sectionwindow_add.ShowDialog();
         }
@@ -152,12 +151,14 @@ namespace QueueManagementUI
                 sectionwindow_update.jobnameTB.BorderBrush = null;
                 sectionwindow_update.queuelocTB.BorderBrush = null;
 
+
+
                 sectionwindow_update.jobnumberTB.Text = selectedItem.JobNumber;
                 sectionwindow_update.sectionnumberTB.Text = selectedItem.SectionNumber;
                 sectionwindow_update.jobnameTB.Text = selectedItem.JobName;             
                 sectionwindow_update.arrivaltimeTB.Text = selectedItem.ArrivalTime.ToString();
                 sectionwindow_update.queuelocTB.Text = selectedItem.Location;
-                sectionwindow_update.ccresultTB.Text = selectedItem.CCSheet.CheckSheetResult;
+                //sectionwindow_update.ccresultTB.Text = selectedItem.CCSheet.CheckSheetResult;
                 sectionwindow_update.impactCB.Text = selectedItem.CCSheet.Impact;
                 sectionwindow_update.q1resultCB.Text = selectedItem.CCSheet.Question1Result;
                 sectionwindow_update.q1issueCB.Text = selectedItem.CCSheet.Q1Issue;

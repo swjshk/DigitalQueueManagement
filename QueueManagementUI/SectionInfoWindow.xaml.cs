@@ -23,7 +23,7 @@ namespace QueueManagementUI
         public MySection currentsection = new MySection();
         public event EventHandler<MySection> AddSectionEvent;//public event
         public event EventHandler<MySection> UpdateSectionEvent;//public event
-       
+
 
         public SectionInfoWindow()
         {
@@ -39,30 +39,39 @@ namespace QueueManagementUI
             currentsection.SectionNumber = sectionnumberTB.Text;
             currentsection.JobName = jobnameTB.Text;
             currentsection.Location = queuelocTB.Text;
-            if (q1resultCB.Text == "Yes" && q2resultCB.Text == "Yes" && q3resultCB.Text == "Yes")
+            
+
+            if (ccresultTB.Text == "Pass")
             {
-                currentsection.CCSheet.CheckSheetResult = "Pass";
-            }
-            else
-            {
-                currentsection.CCSheet.CheckSheetResult = "Fail";
+               impactCB.Text= "Low";
             }
 
-            currentsection.CCSheet.Impact = impactCB.Text;
             currentsection.CCSheet.Question1Result = q1resultCB.Text;
-            currentsection.CCSheet.Q1Issue = q1issueCB.Text;
             currentsection.CCSheet.Question2Result = q2resultCB.Text;
-            currentsection.CCSheet.Q2Issue = q2issueCB.Text;
             currentsection.CCSheet.Question3Result = q3resultCB.Text;
+            currentsection.CCSheet.CheckSheetResult = ccresultTB.Text;
+            currentsection.CCSheet.Impact = impactCB.Text;
+            currentsection.CCSheet.Q1Issue = q1issueCB.Text;
+            currentsection.CCSheet.Q2Issue = q2issueCB.Text;
             currentsection.CCSheet.Q3Issue = q3issueCB.Text;
 
 
             currentsection.CCSheet.SolutionUpdates = solutionupdatesTB.Text;
             currentsection.Comment = commentTB.Text;
-         
 
-            AddSectionEvent?.Invoke(this, currentsection);
-            this.Close();
+            if (q1resultCB.Text=="" || q2resultCB.Text == "" || q3resultCB.Text == "" || impactCB.Text == "" )
+            {
+                MessageBox.Show("Please make selecton(s)");
+            }
+            else
+            {
+                AddSectionEvent?.Invoke(this, currentsection);
+                this.Close();
+
+            }
+
+
+
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
@@ -80,8 +89,15 @@ namespace QueueManagementUI
             {
                 currentsection.CCSheet.CheckSheetResult = "Fail";
             }
+            if (ccresultTB.Text == "Pass")
+            {
+                currentsection.CCSheet.Impact = "Low";
+            }
+            else
+            {
+                currentsection.CCSheet.Impact = impactCB.Text;
+            }
 
-            currentsection.CCSheet.Impact = impactCB.Text;
             currentsection.CCSheet.Question1Result = q1resultCB.Text;
             currentsection.CCSheet.Q1Issue = q1issueCB.Text;
             currentsection.CCSheet.Question2Result = q2resultCB.Text;
@@ -100,7 +116,7 @@ namespace QueueManagementUI
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
- 
+
             this.Close();
         }
     }

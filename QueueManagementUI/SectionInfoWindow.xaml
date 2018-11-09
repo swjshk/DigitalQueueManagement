@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:QueueManagementUI"
         xmlns:a="clr-namespace:QueueClass;assembly=QueueClass"
         mc:Ignorable="d"
-        Title="Section Information" Height="800" Width="700" WindowStartupLocation="CenterScreen" FontSize="14">
+        Title="Section Information" Height="800" Width="700" WindowStartupLocation="CenterScreen" FontSize="14"
+        Name="SectionUI">
     <Window.Resources>
         <a:MySection  x:Key="currentsectionx"/>
     </Window.Resources>
@@ -71,8 +72,30 @@
                 <TextBlock Text="Checkpoint Charlie Check List" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Margin=" 0 10 0 0" Width="660" Height="30"  TextAlignment="Center"  FontSize="20" FontWeight="Bold"  Background="#FF3DCD58" Foreground="White"/>
 
                 <TextBlock Text="CC Result" Grid.Column="0" Grid.Row="4"  Width="100" Margin="0,0,0,0" FontWeight="Bold" VerticalAlignment="Center"/>
-                <TextBox x:Name="ccresultTB" Grid.Column="1" Grid.Row="4" Height="20" Width="120" HorizontalAlignment="Left" >
-                    
+                <TextBox x:Name="ccresultTB" Grid.Column="1" Grid.Row="4" Height="20" Width="120" HorizontalAlignment="Left" IsReadOnly="True" BorderBrush="{x:Null}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=q1resultCB, Path=Text}"  Value="No">
+                                    <Setter Property="Text" Value="Fail" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=q2resultCB, Path=Text}"  Value="No">
+                                    <Setter Property="Text" Value="Fail" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=q3resultCB, Path=Text}"  Value="No">
+                                    <Setter Property="Text" Value="Fail" />
+                                </DataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=q1resultCB, Path=Text}" Value="Yes" />
+                                        <Condition Binding="{Binding ElementName=q2resultCB, Path=Text}" Value="Yes" />
+                                        <Condition Binding="{Binding ElementName=q3resultCB, Path=Text}" Value="Yes" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Text" Value="Pass" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
                 </TextBox>
 
 
@@ -80,28 +103,56 @@
                 <ComboBox x:Name="impactCB" Grid.Column="3" Grid.Row="4" Height="22" Width="120" HorizontalAlignment="Left" FontSize="12" >
                     <ComboBoxItem>High</ComboBoxItem>
                     <ComboBoxItem>Low</ComboBoxItem>
-
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=impactCB, Path=AreAnyTouchesOver}"  Value="False">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=ccresultTB, Path=Text}"  Value="Pass">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=ccresultTB, Path=Text}"  Value="Fail">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
                 </ComboBox>
                 <!--Q1-->
                 <TextBlock Text="Production" Grid.Column="0" Grid.Row="5"  Width="100" Margin="0,0,0,0" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Text="Yes or No" Grid.Column="3" Grid.Row="5"  Width="100" Margin="7,0,0,0" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left"  />
                 <TextBlock Text="1. Is the rework from previous work station completed?" Grid.Column="0" Grid.Row="6"  Grid.ColumnSpan="3" 
                           Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <ComboBox x:Name="q1resultCB" Grid.Column="3" Grid.Row="6" Height="22" Width="80" HorizontalAlignment="Left" FontSize="12" Margin="40 0 0 0" >
+                <ComboBox x:Name="q1resultCB" Grid.Column="3" Grid.Row="6" Height="22" Width="80" HorizontalAlignment="Left" FontSize="12" Margin="0 0 0 0" >
                     <ComboBoxItem>Yes</ComboBoxItem>
                     <ComboBoxItem>No</ComboBoxItem>
                 </ComboBox>
                 <TextBlock Text="Issue:" Grid.Column="0" Grid.Row="7" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <ComboBox x:Name="q1issueCB" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" Height="22" Width="300" HorizontalAlignment="Left" FontSize="12" Margin="50 0 0 0" >
                     <ComboBoxItem>Missing parts</ComboBoxItem>
-                    <ComboBoxItem>Changes requrie re-work</ComboBoxItem>
+                    <ComboBoxItem>Require rework</ComboBoxItem>
                     <ComboBoxItem>Others</ComboBoxItem>
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=q1resultCB, Path=AreAnyTouchesOver}"  Value="False">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=q1resultCB, Path=Text}"  Value="No">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
                 </ComboBox>
                 <!--Q1-->
                 <!--Q2-->
                 <TextBlock Text="Quality" Grid.Column="0" Grid.Row="8"  Width="100" Margin="0,0,0,0" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Text="Yes or No" Grid.Column="3" Grid.Row="8"  Width="100" Margin="7,0,0,0" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left"  />
                 <TextBlock Text="2. Are all quality checks from previous operation completed?" Grid.Column="0" Grid.Row="9"  Grid.ColumnSpan="3" 
                           Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <ComboBox x:Name="q2resultCB" Grid.Column="3" Grid.Row="9" Height="22" Width="80" HorizontalAlignment="Left" FontSize="12" Margin="40 0 0 0" >
+                <ComboBox x:Name="q2resultCB" Grid.Column="3" Grid.Row="9" Height="22" Width="80" HorizontalAlignment="Left" FontSize="12" Margin=" 0 0 0 0" >
                     <ComboBoxItem>Yes</ComboBoxItem>
                     <ComboBoxItem>No</ComboBoxItem>
                 </ComboBox>
@@ -111,20 +162,46 @@
                     <ComboBoxItem>Check sheet incomplete</ComboBoxItem>
                     <ComboBoxItem>Missing check sheet</ComboBoxItem>
                     <ComboBoxItem>Others</ComboBoxItem>
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=q2resultCB, Path=AreAnyTouchesOver}"  Value="False">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=q2resultCB, Path=Text}"  Value="No">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
                 </ComboBox>
                 <!--Q2-->
                 <!--Q3-->
                 <TextBlock Text="Material" Grid.Column="0" Grid.Row="11"  Width="100" Margin="0,0,0,0" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Text="Yes or No" Grid.Column="3" Grid.Row="11"  Width="100" Margin="7,0,0,0" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left"  />
                 <TextBlock Text="3. Is the kit cart ready?" Grid.Column="0" Grid.Row="12"  Grid.ColumnSpan="3" 
                           Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <ComboBox x:Name="q3resultCB" Grid.Column="3" Grid.Row="12" Height="22" Width="80" HorizontalAlignment="Left" FontSize="12" Margin="40 0 0 0" >
+                <ComboBox x:Name="q3resultCB" Grid.Column="3" Grid.Row="12" Height="22" Width="80" HorizontalAlignment="Left" FontSize="12" Margin="0 0 0 0" >
                     <ComboBoxItem>Yes</ComboBoxItem>
                     <ComboBoxItem>No</ComboBoxItem>
                 </ComboBox>
-                <TextBlock Text="Issue:" Grid.Column="0" Grid.Row="13" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Text="Issue:" Grid.Column="0" Grid.Row="13" Margin="0,0,66,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="q3issueCB" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="3" Height="22" Width="300" HorizontalAlignment="Left" FontSize="12" Margin="50 0 0 0" >
                     <ComboBoxItem>Missing kit cart</ComboBoxItem>
+                    <ComboBoxItem>Kit cart in shortage area</ComboBoxItem>
                     <ComboBoxItem>Others</ComboBoxItem>
+                    <ComboBox.Style>
+                        <Style TargetType="ComboBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=q3resultCB, Path=AreAnyTouchesOver}"  Value="False">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=q3resultCB, Path=Text}"  Value="No">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
                 </ComboBox>
                 <!--Q3-->
                 <!--Updates-->
