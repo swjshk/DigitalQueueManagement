@@ -20,7 +20,7 @@
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
 
         </Style>
-        
+
     </Window.Resources>
 
     <Grid>
@@ -45,6 +45,7 @@
         <!--Flagged Section-->
         <Grid Grid.Column=" 1" Grid.Row="1">
             <TextBlock  Text="Failed Section" FontSize="40" Margin="5"  TextAlignment="Center" Foreground="#FF686868" FontWeight="Bold"/>
+            <TextBlock x:Name="failQtyTB"  Grid.Column="1"  Grid.Row=" 1" FontSize="40" Margin="515 5 0 5"  TextAlignment="Left" Foreground="#FF686868" FontWeight="Bold" />
             <DataGrid x:Name="FlaggedSectionDataGrid" Width="720" Height="400" 
                       AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" CanUserSortColumns="False" 
                       HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,60,0,0" FontSize="14" Background="White" BorderBrush="#FF048B1D"
@@ -145,19 +146,22 @@
         <!--Subgrid Column 2 Row 1-->
         <!--Section in Queue-->
         <Grid Grid.Column="2" Grid.Row="1" >
-            
-            <TextBlock Grid.Column="1" Text="Section In Queue" Grid.Row=" 1" FontSize="40" Margin="5"  TextAlignment="Center" Foreground="#FF686868" FontWeight="Bold"/>
+
+            <TextBlock Text="Section In Queue"  Grid.Column="1" Grid.Row=" 1" FontSize="40" Margin="5"  TextAlignment="Center" Foreground="#FF686868" FontWeight="Bold"/>
+            <TextBlock x:Name="sectQtyTB" Grid.Column="1"  Grid.Row=" 1" FontSize="40" Margin="670 5 0 5"  TextAlignment="Left" Foreground="#FF686868" FontWeight="Bold" />
+
             <DataGrid x:Name="SectionInQueueDataGrid" Width="900" Height="845" Grid.Column="2" Grid.Row="1" 
                       AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" AlternatingRowBackground="#FFE6E6E6" 
                       HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,60,0,0" FontSize="14" Background="White" BorderBrush="#FF048B1D"
-                      GridLinesVisibility="None" ColumnHeaderHeight="40" MinRowHeight="25"  SelectionMode="Single" > <!--CanUserSortColumns="False"-->
+                      GridLinesVisibility="None" ColumnHeaderHeight="40" MinRowHeight="25"  SelectionMode="Single" >
+                <!--CanUserSortColumns="False"-->
                 <DataGrid.ContextMenu>
                     <ContextMenu  x:Name="RowMenu2" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
                         <MenuItem Header="Update" Command="{Binding UpdateCommand}"/>
                         <MenuItem Header="Leave" Command="{Binding LeaveCommand}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
-                
+
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Arrival Time" Width=" 170" Binding="{Binding ArrivalTime }" ElementStyle="{StaticResource datagridtextblockStyle2}"/>
                     <DataGridTemplateColumn Header="WaitTime" Width="70">
@@ -240,7 +244,7 @@
                         FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="UpdateButton_Click" />
                 <Button Name="LeaveButton" Width="160" Height="50" Content="Leave" FontSize="30" Margin="0,20,0,0" 
                         FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="LeaveButton_Click" />
-              
+
                 <!--<Button Name="FIFOSortButton" Width="160" Height="50" Content="FIFO Sort" FontSize="30" Margin="0,20,0,0" 
                         FontWeight="Bold" Background="#FF3DCD58" Foreground="White" BorderBrush="{x:Null}" Click="FIFOSortButton_Click"/>-->
             </StackPanel>
