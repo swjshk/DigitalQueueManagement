@@ -113,7 +113,7 @@ namespace QueueManagementUI
                 SectionNumber = "3",
                 JobName = "Warner Bros Tour Center",
                 Location = "B2",
-                ArrivalTime = new DateTime(2018, 11, 06, 6, 30, 52),
+                ArrivalTime = new DateTime(2018, 11, 06, 6, 20, 52),
                 CCSheet = new CheckSheet
                 {
                     Question1Result = "Yes",

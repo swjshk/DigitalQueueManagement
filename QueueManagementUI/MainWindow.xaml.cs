@@ -24,12 +24,14 @@ namespace QueueManagementUI
     {
         public List<MySection> sectioninqueue = new List<MySection>();
         public List<MySection> failedsections = new List<MySection>();
-        //public SectionInfoWindow sectionwindow = new SectionInfoWindow();
+        public int highWIPsize = 18;
+        public int lowWIPsize = 5;
+        public int ccfailureLevel = 6;
 
         public MainWindow()
         {
             InitializeComponent();
-            
+
 
             //load initial dummy data 
             TestData testdata = new TestData();
@@ -46,19 +48,57 @@ namespace QueueManagementUI
 
         private void UpdateBindings_MainWindow()//update WPF data bindings
         {
-            sectioninqueue = sectioninqueue.OrderByDescending(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList(); //sorted by FIFO
+            sectioninqueue = sectioninqueue.OrderBy(x => x.ArrivalTime).ToList(); //sorted by FIFO
             SectionInQueueDataGrid.ItemsSource = sectioninqueue;
             failedsections = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").ToList(); //filter failure section
             FlaggedSectionDataGrid.ItemsSource = failedsections.OrderBy(x => x.CCSheet.Impact).ThenBy(x => x.ArrivalTime).ToList();//sort by arrival time
-
-
-
+            var converter = new System.Windows.Media.BrushConverter();
+            var brushgray = converter.ConvertFromString("#FF686868") as Brush;
+            var brushgreen = converter.ConvertFromString("#FF3DCD58") as Brush;
+            var brushred = converter.ConvertFromString("#FFEF9A9A") as Brush;
             //Queue Status
+            int currentQueueSize = sectioninqueue.Count;
+            sectQtyTB.Text = currentQueueSize.ToString();
+            int ccfailureQty = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").Count();
+            failQtyTB.Text = ccfailureQty.ToString();
 
-            sectQtyTB.Text = sectioninqueue.Count.ToString();
-            failQtyTB.Text = sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").LongCount().ToString();
-            wipsizeTB.Text = $"{sectioninqueue.Count.ToString()} Sections"; //WIP size
-            ccfailureTB.Text = $"{sectioninqueue.Where(x => x.CCSheet.CheckSheetResult == "Fail").LongCount().ToString()} Sections";  //failure section         
+            if (currentQueueSize >= highWIPsize)
+            {
+                wipsizeTB.Text = "High WIP";
+                wipsizeTB.Foreground = Brushes.Red;
+                
+            }
+            else
+            {
+                if (currentQueueSize <= lowWIPsize)
+                {
+                    wipsizeTB.Text = "Low WIP";
+                    wipsizeTB.Foreground = Brushes.Blue;
+                    
+                }
+                else
+                {
+                    wipsizeTB.Text = "Healthy WIP";                   
+                    wipsizeTB.Foreground = brushgray;
+                    
+                }
+            }
+            
+
+            if (ccfailureQty >= ccfailureLevel)
+            {
+                ccfailureTB.Foreground = Brushes.Red;
+            }
+            else
+            {
+               
+                ccfailureTB.Foreground = brushgray;
+
+            }
+
+            ccfailureTB.Text = $"{ccfailureQty.ToString()} Sections";  //failure section         
+            
+
             if (sectioninqueue.Capacity == 0)
             {
                 avgwtTB.Text = $"0 days  0 hours"; //avg waiting time
@@ -68,13 +108,40 @@ namespace QueueManagementUI
                 var avgwt = new TimeSpan(Convert.ToInt64(sectioninqueue.Average(x => x.WaitTime.Ticks)));  //avg waiting time
                 avgwtTB.Text = $"{avgwt.Days} days  {avgwt.Hours} hours"; //avg waiting time
             }
-           
+
+            
+            if ((currentQueueSize>=highWIPsize || currentQueueSize<=lowWIPsize) && ccfailureQty <= ccfailureLevel)
+            {
+                actionTB.Text = "Supervisor: WIP size is NOT healthy. Please take actions!";
+                actionTB.Foreground = Brushes.Red;
+                apptitleTB.Background = brushred;
+            }
+            if ((currentQueueSize >= highWIPsize || currentQueueSize <= lowWIPsize) && ccfailureQty >= ccfailureLevel)
+            {
+                actionTB.Text = "Supervisor: WIP size is NOT healthy. There are to many failure sections. Please take actions!";
+                actionTB.Foreground = Brushes.Red;
+                apptitleTB.Background = brushred;
+            }
+            if ((currentQueueSize < highWIPsize && currentQueueSize > lowWIPsize) && ccfailureQty >= ccfailureLevel)
+            {
+                actionTB.Text = "Supervisor: There are to many failure sections. Please take actions!";
+                actionTB.Foreground = Brushes.Red;
+                apptitleTB.Background = brushred;
+            }
+            if (currentQueueSize < highWIPsize && currentQueueSize>lowWIPsize && ccfailureQty< ccfailureLevel)
+            {
+                actionTB.Text = "Queue Status is Good!";
+                actionTB.Foreground = brushgreen;
+                apptitleTB.Background = brushgreen;
+
+            }
+          
 
         }
 
         //event action
         private void Sectionwindow_AddSectionEvent(object sender, MySection e)
-        {         
+        {
             sectioninqueue.Add(e);
             this.IsEnabled = true;
             UpdateBindings_MainWindow();
@@ -82,7 +149,7 @@ namespace QueueManagementUI
 
         private void Sectionwindow_UpdateSectionEvent(object sender, MySection e)
         {
-            
+
             var selectedItem = SectionInQueueDataGrid.SelectedItem as MySection;
             sectioninqueue.Remove(selectedItem);
             sectioninqueue.Add(e);
@@ -90,11 +157,11 @@ namespace QueueManagementUI
         }
 
 
-      private void ArriveButton_Click(object sender, RoutedEventArgs e)
+        private void ArriveButton_Click(object sender, RoutedEventArgs e)
         {
             SectionInfoWindow sectionwindow_add = new SectionInfoWindow();
             MySection qsection1 = new MySection();
-           
+
             //this.IsEnabled = false;
 
             sectionwindow_add.UpdateButton.IsEnabled = false;
@@ -107,17 +174,17 @@ namespace QueueManagementUI
 
             sectionwindow_add.currentsection = qsection1;
 
- 
+
             sectionwindow_add.AddSectionEvent += Sectionwindow_AddSectionEvent;//subscribe event
-                        sectionwindow_add.ShowDialog();
+            sectionwindow_add.ShowDialog();
         }
         private void LeaveButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = SectionInQueueDataGrid.SelectedItem as MySection;
             if (selectedItem != null)
             {
-                MessageBoxResult result = MessageBox.Show( $"Job Information:\r\rQueue Loc: { selectedItem.Location}\rSection {selectedItem.SectionNumber} of {selectedItem.JobNumber}\r" + 
-                    $"{selectedItem.JobName}\r\r"+ "Do you want to remove the above section?", "Leaving the queue", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Job Information:\r\rQueue Loc: { selectedItem.Location}\rSection {selectedItem.SectionNumber} of {selectedItem.JobNumber}\r" +
+                    $"{selectedItem.JobName}\r\r" + "Do you want to remove the above section?", "Leaving the queue", MessageBoxButton.YesNo);
 
                 if (result == MessageBoxResult.Yes)
                 {
@@ -139,7 +206,7 @@ namespace QueueManagementUI
             if (selectedItem != null)
             {
                 SectionInfoWindow sectionwindow_update = new SectionInfoWindow();
-               
+
                 sectionwindow_update.AddButton.IsEnabled = false;
                 sectionwindow_update.AddButton.Visibility = Visibility.Hidden;
                 sectionwindow_update.jobnumberTB.IsReadOnly = true;
@@ -155,7 +222,7 @@ namespace QueueManagementUI
 
                 sectionwindow_update.jobnumberTB.Text = selectedItem.JobNumber;
                 sectionwindow_update.sectionnumberTB.Text = selectedItem.SectionNumber;
-                sectionwindow_update.jobnameTB.Text = selectedItem.JobName;             
+                sectionwindow_update.jobnameTB.Text = selectedItem.JobName;
                 sectionwindow_update.arrivaltimeTB.Text = selectedItem.ArrivalTime.ToString();
                 sectionwindow_update.queuelocTB.Text = selectedItem.Location;
                 //sectionwindow_update.ccresultTB.Text = selectedItem.CCSheet.CheckSheetResult;
@@ -170,7 +237,7 @@ namespace QueueManagementUI
                 sectionwindow_update.commentTB.Text = selectedItem.Comment;
 
                 sectionwindow_update.UpdateSectionEvent += Sectionwindow_UpdateSectionEvent;//subscribe event
-              
+
                 sectionwindow_update.ShowDialog();
             }
             else
