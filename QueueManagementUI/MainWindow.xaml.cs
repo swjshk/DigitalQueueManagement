@@ -55,7 +55,8 @@ namespace QueueManagementUI
             var converter = new System.Windows.Media.BrushConverter();
             var brushgray = converter.ConvertFromString("#FF686868") as Brush;
             var brushgreen = converter.ConvertFromString("#FF3DCD58") as Brush;
-            var brushred = converter.ConvertFromString("#FFEF9A9A") as Brush;
+            var brushred1 = converter.ConvertFromString("#FFEF9A9A") as Brush;
+            var brushred2 = converter.ConvertFromString("#FFef5350") as Brush;
             //Queue Status
             int currentQueueSize = sectioninqueue.Count;
             sectQtyTB.Text = currentQueueSize.ToString();
@@ -65,7 +66,7 @@ namespace QueueManagementUI
             if (currentQueueSize >= highWIPsize)
             {
                 wipsizeTB.Text = "High WIP";
-                wipsizeTB.Foreground = Brushes.Red;
+                wipsizeTB.Foreground = brushred2;
                 
             }
             else
@@ -87,7 +88,7 @@ namespace QueueManagementUI
 
             if (ccfailureQty >= ccfailureLevel)
             {
-                ccfailureTB.Foreground = Brushes.Red;
+                ccfailureTB.Foreground = brushred2;
             }
             else
             {
@@ -113,20 +114,20 @@ namespace QueueManagementUI
             if ((currentQueueSize>=highWIPsize || currentQueueSize<=lowWIPsize) && ccfailureQty <= ccfailureLevel)
             {
                 actionTB.Text = "Supervisor: WIP size is NOT healthy. Please take actions!";
-                actionTB.Foreground = Brushes.Red;
-                apptitleTB.Background = brushred;
+                actionTB.Foreground = brushred2;
+                apptitleTB.Background = brushred2;
             }
             if ((currentQueueSize >= highWIPsize || currentQueueSize <= lowWIPsize) && ccfailureQty >= ccfailureLevel)
             {
                 actionTB.Text = "Supervisor: WIP size is NOT healthy. There are to many failure sections. Please take actions!";
-                actionTB.Foreground = Brushes.Red;
-                apptitleTB.Background = brushred;
+                actionTB.Foreground = brushred2;
+                apptitleTB.Background = brushred2;
             }
             if ((currentQueueSize < highWIPsize && currentQueueSize > lowWIPsize) && ccfailureQty >= ccfailureLevel)
             {
                 actionTB.Text = "Supervisor: There are to many failure sections. Please take actions!";
-                actionTB.Foreground = Brushes.Red;
-                apptitleTB.Background = brushred;
+                actionTB.Foreground = brushred2;
+                apptitleTB.Background = brushred2;
             }
             if (currentQueueSize < highWIPsize && currentQueueSize>lowWIPsize && ccfailureQty< ccfailureLevel)
             {
